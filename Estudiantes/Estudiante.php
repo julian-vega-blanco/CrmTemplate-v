@@ -1,27 +1,25 @@
 <?php
 
 
-require_once("db.php");
+require_once("../Config/db.php");
+require_once("../Config/Conectar.php");
 
-class Config{
+
+class Estudiante extends Conectar{
     private $id;
     private $nombres;
     private $direccion;
     private $logros;
 
-
-
-    protected $dbCnx;
-
-
-    public function __construct($id= 0, $nombres="", $direccion="", $logros= ""){
+    public function __construct($id= 0, $nombres="", $direccion="", $logros= "", $dbCnx=""){
 
         $this ->id = $id;
         $this -> nombres = $nombres;
         $this -> direccion= $direccion;
         $this -> logros = $logros;
+        parent::__construct($dbCnx);
     
-        $this->dbCnx = new PDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PWD, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC] );
+        //$this->dbCnx = new PDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PWD, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC] );//
     }
 
     //getter
@@ -38,7 +36,7 @@ class Config{
     }
 
     public function getNombres(){
-        return $this -> nombre;
+        return $this -> nombres;
     }
 
     public function setDireccion($direccion){

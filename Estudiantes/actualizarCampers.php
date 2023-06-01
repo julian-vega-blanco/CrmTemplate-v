@@ -1,7 +1,7 @@
 <?php
 
-require_once ("config.php");
-$data = new config();
+require_once ("Estudiante.php");
+$data = new Estudiante();
 
 $id = $_GET['id'];
 
