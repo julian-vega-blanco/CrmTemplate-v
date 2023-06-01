@@ -21,7 +21,7 @@
             <img src="img/camper.png" alt="" class="logo"></div>
             <div class="d-flex justify-content-center align-items-center"><h1 style="font-weight: 800;">BIENVENIDOS</h1></div>
             <div  class="d-flex justify-content-center align-items-center" >
-                <form action="loguearse.php" method="POST">
+                <form action="logearse.php" method="POST">
                     <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                         <input 
@@ -42,7 +42,7 @@
                         />
                     </div>
                  
-                    <input type="submit" class="btn btn-primary" value="loguearse" name="loguearse">
+                    <input type="submit" class="btn btn-primary" value="Login" name="logearse">
                   </form>
                   
 
@@ -61,7 +61,7 @@
             
              <div  class="d-flex justify-content-center align-items-center" >
                 
-                <form action="registrarse.php" method="POST>
+                <form action="registrarse.php" method="POST">
                     <h1 class="m-5" style="font-weight: 800;">REGISTRAR USUARIO</h1>
                     <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
