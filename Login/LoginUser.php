@@ -62,10 +62,17 @@ public function login(){
         $stm -> execute ([$this->email, $this->password]);
         $user = $stm->fetchAll();
         if(count($user)>0){
-            
+           session_start();
+           $_SESSION['id'] = $user[0]['id']; 
+           $_SESSION['email'] = $user[0]['email']; 
+           $_SESSION['password'] = $user[0]['password']; 
+           return true;
         }
-    } catch ($th) {
-        //throw $th;
+        else{
+            false;
+        }
+    }catch (Exception $e) {
+        return $e->getMessage();
     }
 }
                  

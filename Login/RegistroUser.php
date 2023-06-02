@@ -1,6 +1,7 @@
 <?php
 require_once("../Config/db.php");
 require_once("../Config/Conectar.php");
+require_once("LoginUser.php");
 
 class RegistroUser extends Conectar{
     private $id;
@@ -79,32 +80,21 @@ public function insertData(){
         $stm = $this->dbCnx ->prepare("INSERT INTO users (idcamper, email, username, password)values(?,?,?,?)");
         $stm ->execute([$this->idcamper, $this->email, $this->username, md5($this->password)]);
 
-        $login =
+        $login = new LoginUser();
+
+        $login -> setEmail($_POST['email']);
+        $login -> setPassword($_POST['password']);
+       
+
+        $success = $login->login();
+
     } 
     catch (Exception $e) {
         return $e->getMessage();
     }
 }
-                 
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ?>
